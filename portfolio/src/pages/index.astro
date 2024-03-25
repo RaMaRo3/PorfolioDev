@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Badge from '../components/Badge.astro';
+import GitHub from '../icons/GitHub.astro';
+import Linkedin from '../icons/Linkedin.astro';
 ---
 
 <Layout title="Ramón Martínez">
@@ -11,8 +13,16 @@ import Badge from '../components/Badge.astro';
     		src="/Ramon2.png" alt="ramon photo">
 			<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10"> Hey, I'm Ramón <a href="https://www.linkedin.com/in/ramon-martinez-rodriguez-b46930236/" target="_blank" rel="noopener" class="flex justify-center items-center"><Badge>Available for work</Badge></a>
 			</h1>
-			<h2 class="text-xl opacity-80">Junior programmer currently studying Game Design and Development at the University of Girona.</h2>
-			<ul></ul>
+			<h2 class="text-2xl opacity-80 text-wrap">Junior programmer currently studying Game Design and Development at the University of Girona.</h2>
+			<ul>
+				<a href="https://www.linkedin.com/in/ramon-martinez-rodriguez-b46930236">
+					<Linkedin class="w-6 h-6"/>
+					Linkedin</a>
+				<a href="https://github.com/RaMaRo3">
+					<GitHub class="w-6 h-6"/>
+					GitHub</a>
+				<a href=""></a>
+			</ul>
 		</section>
 	</main>
 </Layout>
