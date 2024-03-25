@@ -1,11 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import Badge from '../components/Badge.astro';
 ---
 
 <Layout title="Ramón Martínez">
 	<main>
-		
+		<section class="w-full mx-auto lg:w-[740px] py-44">
+			<img class="rounded-full w-14 h-14 mb-4"
+    		src="/Ramon2.png" alt="ramon photo">
+			<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10"> Hey, I'm Ramón <a href="https://www.linkedin.com/in/ramon-martinez-rodriguez-b46930236/" target="_blank" rel="noopener" class="flex justify-center items-center"><Badge>Available for work</Badge></a>
+			</h1>
+			<h2 class="text-xl opacity-80">Junior programmer currently studying Game Design and Development at the University of Girona.</h2>
+			<ul></ul>
+		</section>
 	</main>
 </Layout>
 
