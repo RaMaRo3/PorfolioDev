@@ -1,0 +1,23 @@
+---
+import { date } from "astro/zod";
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE = [
+  {
+    date: "Summer 2022-2023",
+    title: "Baker-cashier",
+    company: "Mercadona, Spain",
+    description:
+      "At Mercadona, I developed skills such as teamwork, attention to detail and problem solving. I highlight my ability to adapt quickly and provide excellent customer service. Although my experience is not in direct programming, these skills I believe are relevant and allow me to contribute effectively in software development roles.",
+  },
+];
+---
+<ol class="relative border-s border-gray-200 dark:border-gray-700">
+  {
+    EXPERIENCE.map(experience => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experience}/>
+      </li>
+    ))
+  }
+</ol>

@@ -6,13 +6,18 @@ import GitHub from '../icons/GitHub.astro';
 import Linkedin from '../icons/Linkedin.astro';
 import Pill from '../components/Pill.astro';
 import Mail from '../icons/Mail.astro';
+import Copy from '../icons/Copy.astro';
+import Experience from '../components/Experience.astro';
+import SectionContainer from '../components/SectionContainer.astro'
+import ExperienceIcon from '../icons/ExperienceIcon.astro';
+
 ---
 
-<Layout title="Ramón Martínez">
+<Layout title="Ramon Martinez's Portfolio" description="Video game design student">
 	<main>
-		<section class="w-full mx-auto lg:w-[740px] py-44">
-			<img class="rounded-full size-12 mb-4"
-    		src="/Ramon2.png" alt="ramon photo">
+		<SectionContainer class="py-40 pb-20">
+			<img class="rounded-full size-14 mb-4"
+    		src="/RamonRound.png" alt="ramon photo">
 			<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10"> Hey, I'm Ramón <a href="https://www.linkedin.com/in/ramon-martinez-rodriguez-b46930236/" target="_blank" rel="noopener" class="flex justify-center items-center"><Badge>Available for work</Badge></a>
 			</h1>
 			<h2 class="text-xl opacity-80 text-wrap">Junior programmer currently studying Game Design and Development at the University of Girona.</h2>
@@ -27,14 +32,41 @@ import Mail from '../icons/Mail.astro';
 					<GitHub class="size-6"/>
 					GitHub
 				</Pill>
-
-				<Pill href="https://github.com/RaMaRo3">
-					<Mail class="size-6"/>
-					ramonmartinezrodriguez03@gmail.com
-				</Pill>
-
+				<div class="mail">
+					<Pill>
+						<Mail id="mail" class="size-6"/>
+						ramonmartinezrodriguez03@gmail.com
+						<Copy id="button" class="size-6"/>
+					</Pill>
+				</div>
+				<div class="copyMessage" style="display: none; font-size: 0.9rem; margin-top: 0.7rem">Copied!</div>
 			</nav>
-		</section>
+		</Sec>
+
+		<SectionContainer id="experience">
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-2 items-center">
+				<ExperienceIcon class="size-6"/>
+				Experience</h2>
+			<Experience/>
+		</SectionContainer>
+
+		<script>
+			const button = document.querySelectorAll('div.mail');
+			button.forEach((button) => {
+				button.addEventListener('click', () => {
+                const email = 'ramonmartinezrodriguez03@gmail.com';
+                navigator.clipboard.writeText(email).then(() => {
+					const copyMessage = button.nextElementSibling;
+					copyMessage.style.display = 'inline';
+                    setTimeout(() => {
+						copyMessage.style.display = 'none';
+                    }, 1000);
+                }).catch((error) => {
+                    console.error('Error copying: ', error);
+                });
+            });
+			});
+		</script>
 	</main>
 </Layout>
 
