@@ -1,0 +1,29 @@
+---
+const PROJECTS = [
+  {
+    title: "Echoes of Extinction",
+    description:
+      "Echoes of Extinction immerses you in an island infested with zombies, where you must find the antidote to save humanity. Explore perilous environments, uncover clues, and battle hordes of zombies in this survival adventure. Do you have what it takes to survive and find the cure? Join the battle in Echoes of Extinction and find out!",
+    link: "https://polichester.itch.io/echoes-of-extintion",
+    github: "https://github.com/IkelosVoidz/zombie-game-repos",
+    image: "/ZombieGame.jpg",
+    tags: ["C#","Unity"],
+  },
+];
+---
+
+{
+    PROJECTS.map(({ image, title, description, tags }) => (
+      <article>
+        <h3 class="text-xl font-semibold text-blue-300 mb-1">{title}</h3>
+        <p class="mb-4 text-pretty">{description}</p>
+        <ul>
+          {tags.map(tag => (
+            <li>{tag}</li>
+          ))}
+        </ul>
+        <img class="rounded shadow-xl shadow-blue-300/10"
+          src={image} alt={`Screenshot ${image}`} />
+      </article>
+    ))
+}
