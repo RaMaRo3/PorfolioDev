@@ -18,7 +18,7 @@ import Projects from '../components/Projects.astro'
 <Layout title="Ramon Martinez's Portfolio" description="Video game design student">
 	<main class="px-4">
 		<SectionContainer class="py-40 pb-20">
-			<img class="rounded-full size-14 mb-4"
+			<img class="rounded-full size-20 mb-4"
     		src="/RamonRound.png" alt="ramon photo">
 			<h1 class="text-white text-4xl md:text-4xl font-bold flex flex-row gap-x-4 pb-10"> Hey, I'm Ramón <a href="https://www.linkedin.com/in/ramon-martinez-rodriguez-b46930236/" target="_blank" rel="noopener" class="flex justify-center items-center"><Badge>Available for work</Badge></a>
 			</h1>
@@ -53,11 +53,13 @@ import Projects from '../components/Projects.astro'
 		</SectionContainer>
 
 		<SectionContainer id="projects">
-			<h2 class="text-3xl font-semibold mb-6 flex gap-x-2 items-center">
-				<ProjectIcon class="size-6"/>
-				Projects</h2>
-			<Projects/>
-		</SectionContainer>
+			<h2
+			  class="flex items-center mb-6 text-3xl font-semibold gap-x-3"
+			>
+			<ProjectIcon class="size-6"/>
+			Projects</h2>
+			<Projects />
+		  </SectionContainer>
 
 		<script>
 			const button = document.querySelectorAll('div.mail');

@@ -1,4 +1,29 @@
 ---
+import LinkButton from "./LinkButton.astro"
+import GitHub from "../icons/GitHub.astro";
+import Link from "../icons/Link.astro"
+import CSharp from "../icons/CSharp.astro"
+import Unity from "../icons/Unity.astro"
+import Tailwind from "../icons/Tailwind.astro"
+
+const TAGS = {
+  CSharp: {
+    name: "CSharp",
+    class: "bg-[#6F4ADC] text-white",
+    icon: CSharp,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  Unity: {
+    name: "Unity",
+    class: "bg-black text-white",
+    icon: Unity,
+  },
+}
+
 const PROJECTS = [
   {
     title: "Echoes of Extinction",
@@ -6,24 +31,58 @@ const PROJECTS = [
       "Echoes of Extinction immerses you in an island infested with zombies, where you must find the antidote to save humanity. Explore perilous environments, uncover clues, and battle hordes of zombies in this survival adventure. Do you have what it takes to survive and find the cure? Join the battle in Echoes of Extinction and find out!",
     link: "https://polichester.itch.io/echoes-of-extintion",
     github: "https://github.com/IkelosVoidz/zombie-game-repos",
-    image: "/ZombieGame.jpg",
-    tags: ["C#","Unity"],
+    image: "/Echoes.jpg",
+    tags: [TAGS.Unity,TAGS.CSharp],
   },
 ];
 ---
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+  <div class="w-full md:w-1/2">
+    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+      <img alt="" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+    </div>
+  </div>
 
-{
-    PROJECTS.map(({ image, title, description, tags }) => (
-      <article>
-        <h3 class="text-xl font-semibold text-blue-300 mb-1">{title}</h3>
-        <p class="mb-4 text-pretty">{description}</p>
-        <ul>
-          {tags.map(tag => (
-            <li>{tag}</li>
+  <div class="w-full md:w-1/2 md:max-w-lg">
+    <h3 class="text-2xl font-bold opacity-90 text-blue-300">
+      {title}
+    </h3>
+    <div class="flex flex-wrap mt-2">
+      <ul class="flex flex-row mb-2 gap-x-2">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
           ))}
         </ul>
-        <img class="rounded shadow-xl shadow-blue-300/10"
-          src={image} alt={`Screenshot ${image}`} />
-      </article>
+
+      <div class="mt-2 text-pretty">{description}</div>
+      <footer class="flex items-end justify-start mt-4 gap-x-3">
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="size-6" />
+              Code
+              
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link}>
+              <Link class="size-4" />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
+    </div>
+  </div>
+</article>
     ))
-}
+  }
+</div>
