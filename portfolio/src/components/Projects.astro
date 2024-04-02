@@ -5,6 +5,7 @@ import Link from "../icons/Link.astro"
 import CSharp from "../icons/CSharp.astro"
 import Unity from "../icons/Unity.astro"
 import Tailwind from "../icons/Tailwind.astro"
+import Sql from "../icons/Sql.astro";
 
 const TAGS = {
   CSharp: {
@@ -22,6 +23,11 @@ const TAGS = {
     class: "bg-black text-white",
     icon: Unity,
   },
+  SQL: {
+    name: "SQL Server",
+    class: "bg-black text-white",
+    icon: Sql,
+  },
 }
 
 const PROJECTS = [
@@ -34,6 +40,15 @@ const PROJECTS = [
     image: "/Echoes.jpg",
     tags: [TAGS.Unity,TAGS.CSharp],
   },
+  {
+    title: "Shop",
+    description:
+      "Echoes of Extinction immerses you in an island infested with zombies, where you must find the antidote to save humanity. Explore perilous environments, uncover clues, and battle hordes of zombies in this survival adventure. Do you have what it takes to survive and find the cure? Join the battle in Echoes of Extinction and find out!",
+    github: "https://github.com/RaMaRo3/CSharp-.Net",
+    image: "/1.jpg",
+    tags: [TAGS.CSharp,TAGS.SQL],
+  }
+
 ];
 ---
 <div class="flex flex-col gap-y-16">
