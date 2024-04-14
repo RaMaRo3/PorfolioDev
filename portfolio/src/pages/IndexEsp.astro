@@ -1,19 +1,17 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
+import Layout from "../layouts/LayoutEsp.astro";
 import Badge from "../components/Badge.astro";
 import GitHub from "../icons/GitHub.astro";
 import Linkedin from "../icons/Linkedin.astro";
 import Pill from "../components/Pill.astro";
 import Mail from "../icons/Mail.astro";
 import Copy from "../icons/Copy.astro";
-import Experience from "../components/Experience.astro";
+import Experience from "../components/esp/ExperienceEsp.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import ExperienceIcon from "../icons/ExperienceIcon.astro";
 import ProjectIcon from "../icons/ProjectIcon.astro";
-import Projects from "../components/Projects.astro";
+import Projects from "../components/esp/ProjectsEsp.astro";
 import AboutIcon from "../icons/AboutIcon.astro";
-import Spain from "../icons/Spain.astro";
 import AboutMe from "../components/AboutMe.astro";
 ---
 
@@ -31,17 +29,16 @@ import AboutMe from "../components/AboutMe.astro";
       <h1
         class="text-white text-4xl md:text-4xl font-bold flex flex-row gap-x-4 pb-10"
       >
-        Hey, I'm Ramón <a
+        Hey, soy Ramón <a
           href="https://www.linkedin.com/in/ram%C3%B3n-mart%C3%ADnez-rodr%C3%ADguez-b46930236/"
           target="_blank"
           rel="noopener"
           class="flex justify-center items-center"
-          ><Badge>Available for work</Badge></a
+          ><Badge>Disponible para trabajar</Badge></a
         >
       </h1>
       <h2 class="text-xl lg:text-xl opacity-80 text-wrap max-w-[700px]:">
-        Junior programmer currently studying Game Design and Development at the
-        University of Girona.
+        Programador junior que actualmente está estudiando Diseño y Desarrollo de Videojuegos en la Universidad de Girona.
       </h2>
       <nav class="flex gap-3 mt-6 flex-wrap">
         <Pill
@@ -65,7 +62,7 @@ import AboutMe from "../components/AboutMe.astro";
           class="copyMessage"
           style="display: none; font-size: 0.9rem; margin-top: 0.7rem"
         >
-          Copied!
+          Copiado!
         </div>
       </nav>
     </SectionContainer>
@@ -73,7 +70,7 @@ import AboutMe from "../components/AboutMe.astro";
     <SectionContainer id="experience">
       <h2 class="text-3xl font-semibold mb-6 flex gap-x-2 items-center">
         <ExperienceIcon class="size-6" />
-        Experience
+        Experiencia
       </h2>
       <Experience />
     </SectionContainer>
@@ -81,7 +78,7 @@ import AboutMe from "../components/AboutMe.astro";
     <SectionContainer id="projects">
       <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3">
         <ProjectIcon class="size-6" />
-        Projects
+        Proyectos
       </h2>
       <Projects />
     </SectionContainer>
@@ -89,7 +86,7 @@ import AboutMe from "../components/AboutMe.astro";
     <SectionContainer class="mt-14" id="about">
       <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3">
         <AboutIcon class="size-6" />
-        About Me
+        Sobre Mi
       </h2>
 	  <AboutMe/>
     </SectionContainer>

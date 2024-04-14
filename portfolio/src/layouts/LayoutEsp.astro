@@ -1,0 +1,73 @@
+---
+interface Props {
+	title: string;
+	description: string;
+}
+import '@fontsource-variable/onest';
+import Header from '../components/esp/HeaderEsp.astro';
+import Footer from '../components/Footer.astro';
+const { description,title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<div class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(100,181,246,0.5),rgba(255,255,255,0))]"></div>
+		<Header  />
+		<slot />
+		<Footer/>
+	</body>
+</html>
+<style is:global>
+	:root {
+		color-scheme: light dark;
+	}
+	html {
+		font-family: "Onest Variable",system-ui, sans-serif;
+		scroll-behavior: smooth;
+	}
+
+	body{
+		overflow-x: hidden;
+		background: #0A0A0A;
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+
+	}
+
+	@media(prefers-reduced-motion: reduce){
+		html{
+			scroll-behavior: auto;
+		}
+	}
+
+	::-webkit-scrollbar {
+        width: 10px; /* Ancho de la barra de desplazamiento */
+    }
+
+    /* Estilo del riel de la barra de desplazamiento */
+    ::-webkit-scrollbar-track {
+        background: #0A0A0A; /* Color de fondo del riel */
+    }
+
+    /* Estilo del pulgar de la barra de desplazamiento */
+    ::-webkit-scrollbar-thumb {
+		border-radius: 20px;
+        background: rgba(100,181,246,0.5); /* Color del pulgar */
+    }
+
+    /* Hover sobre el pulgar */
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgba(100,181,246,0.8);; /* Color del pulgar al pasar el ratón por encima */
+    }
+
+</style>
