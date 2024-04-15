@@ -1,0 +1,23 @@
+---
+import { date } from "astro/zod";
+import ExperienceItem from "../ExperienceItem.astro";
+
+const EXPERIENCE = [
+  {
+    date: "Estiu 2022-2023",
+    title: "Caixer-Forner",
+    company: "Mercadona, Espanya",
+    description:
+      "A Mercadona, vaig desenvolupar habilitats com el treball en equip, l'atenció al detall i la resolució de problemes. Destaco la meva capacitat per adaptar-me ràpidament i oferir un excel·lent servei al client. Tot i que la meva experiència no està directament relacionada amb la programació, considero que aquestes habilitats són rellevants i em permeten contribuir de manera efectiva en rols de desenvolupament de software/web.",
+  },
+];
+---
+<ol class="relative border-s border-gray-200 dark:border-gray-700">
+  {
+    EXPERIENCE.map(experience => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experience}/>
+      </li>
+    ))
+  }
+</ol>
