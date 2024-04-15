@@ -1,0 +1,117 @@
+---
+import Layout from "../layouts/LayoutCat.astro";
+import Badge from "../components/Badge.astro";
+import GitHub from "../icons/GitHub.astro";
+import Linkedin from "../icons/Linkedin.astro";
+import Pill from "../components/Pill.astro";
+import Mail from "../icons/Mail.astro";
+import Copy from "../icons/Copy.astro";
+import Experience from "../components/cat/ExperienceCat.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import ExperienceIcon from "../icons/ExperienceIcon.astro";
+import ProjectIcon from "../icons/ProjectIcon.astro";
+import Projects from "../components/cat/ProjectsCat.astro";
+import AboutIcon from "../icons/AboutIcon.astro";
+import AboutMe from "../components/cat/AboutMeCat.astro";
+---
+
+<Layout
+  title="Ramon Martinez's Portfolio"
+  description="Video game design student"
+>
+  <main class="px-4">
+    <SectionContainer class="py-40 pb-20">
+      <img
+        class="rounded-full size-20 mb-4"
+        src="/RamonRound.png"
+        alt="ramon photo"
+      />
+      <h1
+        class="text-white text-4xl md:text-4xl font-bold flex flex-row gap-x-4 pb-10"
+      >
+        Bones, soc en Ramón <a
+          href="https://www.linkedin.com/in/ram%C3%B3n-mart%C3%ADnez-rodr%C3%ADguez-b46930236/"
+          target="_blank"
+          rel="noopener"
+          class="flex justify-center items-center"
+          ><Badge>Disponible per a treballar</Badge></a
+        >
+      </h1>
+      <h2 class="text-xl lg:text-xl opacity-80 text-wrap max-w-[700px]:">
+        Programador júnior que actualment està estudiant Disseny i Desenvolupament de Videojocs en la Universitat de Girona.
+      </h2>
+      <nav class="flex gap-3 mt-6 flex-wrap">
+        <Pill
+          href="https://www.linkedin.com/in/ram%C3%B3n-mart%C3%ADnez-rodr%C3%ADguez-b46930236/"
+        >
+          <Linkedin class="size-4 md:size-6" />
+          Linkedin
+        </Pill>
+        <Pill href="https://github.com/RaMaRo3">
+          <GitHub class="size-4 md:size-6" />
+          GitHub
+        </Pill>
+        <div class="mail">
+          <Pill>
+            <Mail id="mail" class="size-4 md:size-6" />
+            ramonmartinezrodriguez03@gmail.com
+            <Copy id="button" class="size-4 md:size-6" />
+          </Pill>
+        </div>
+        <div
+          class="copyMessage"
+          style="display: none; font-size: 0.9rem; margin-top: 0.7rem"
+        >
+          Copiat!
+        </div>
+      </nav>
+    </SectionContainer>
+
+    <SectionContainer id="experience">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-2 items-center">
+        <ExperienceIcon class="size-6" />
+        Experiència
+      </h2>
+      <Experience />
+    </SectionContainer>
+
+    <SectionContainer id="projects">
+      <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3">
+        <ProjectIcon class="size-6" />
+        Projectes
+      </h2>
+      <Projects />
+    </SectionContainer>
+
+    <SectionContainer class="mt-14" id="about">
+      <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3">
+        <AboutIcon class="size-6" />
+        Sobre Mi
+      </h2>
+	  <AboutMe/>
+    </SectionContainer>
+
+    <script>
+      const button = document.querySelectorAll("div.mail");
+      button.forEach((button) => {
+        button.addEventListener("click", () => {
+          const email = "ramonmartinezrodriguez03@gmail.com";
+          navigator.clipboard
+            .writeText(email)
+            .then(() => {
+              const copyMessage = button.nextElementSibling;
+              copyMessage.style.display = "inline";
+              setTimeout(() => {
+                copyMessage.style.display = "none";
+              }, 1000);
+            })
+            .catch((error) => {
+              console.error("Error copying: ", error);
+            });
+        });
+      });
+    </script>
+  </main>
+</Layout>
+
+<style></style>
